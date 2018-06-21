@@ -1,0 +1,74 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Akorder
+ *
+ * @ORM\Table(name="akorder", indexes={@ORM\Index(name="product_id", columns={"product_id"}), @ORM\Index(name="user_id", columns={"user_id"})})
+ * @ORM\Entity
+ */
+class Akorder
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_order", type="datetime", nullable=true)
+     */
+    private $dateOrder;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_payment", type="datetime", nullable=true)
+     */
+    private $datePayment;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="status", type="text", length=255, nullable=false)
+     */
+    private $status;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="quantity", type="integer", nullable=false)
+     */
+    private $quantity;
+
+    /**
+     * @var \AppBundle\Entity\Users
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Users")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * })
+     */
+    private $user;
+
+    /**
+     * @var \AppBundle\Entity\Products
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Products")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="product_id", referencedColumnName="id")
+     * })
+     */
+    private $product;
+
+
+}
+

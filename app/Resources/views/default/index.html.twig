@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{#
+
+{% for i in range(0, 3) %}
+    {{ i }},
+{% endfor %}
+<br>
+{% for i in range(low=1, high=10, step=2) %}
+    {{ i }},
+{% endfor %}
+<br>
+{% for i in 5..1 %}
+    {{ i }},
+{% endfor %}
+<br>
+{% for i in range(0,15,3) %}
+    {{ i }},
+{% endfor %}
+<br>
+{% for letter in 'a'|upper..'g'|upper %}
+    * {{ letter }} - {{ loop.revindex }} <br>
+{% endfor %}
+
+#}
+
+
+    {% set rang = range(2, 20) %}
+    <table class="generic-table meal-list">
+        <caption>Carte du restaurant</caption>
+        <tbody>
+            {# <?php foreach ($products as $value):?> #}
+            {% for product in listProduct %}
+            <tr>
+                <td>
+                    {# <img src="{{ asset('images/meals/bagel_thon.jpg') }}" alt="photo"> #}
+                    <img src="{{ asset('images/meals') }}/{{product.photo}}" alt="photo">
+                </td>
+                <td>
+                    <p>
+                        <strong>
+                            {{product.name}}
+                        </strong>
+                    </p>
+                    <p>
+                        {{product.description}}
+                    </p>
+                </td>
+                {# <td class="number"><strong>{{ random(rang) }}</strong> € #}
+                <td class="number"><strong>{{product.PriceSale}}</strong> €
+                    
+                </td>
+            </tr>
+            {% endfor %}
+            {# <?php endforeach; ?> #}
+        </tbody>
+    
+    </table>
+
+{% endblock %}

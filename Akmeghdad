@@ -1,0 +1,11 @@
+
+
+
+
+
+
+bin/console doctrine:mapping:import AppBundle yml
+
+bin/console doctrine:mapping:convert annotation ./src
+
+bin/console doctrine:generate:entities AppBundle

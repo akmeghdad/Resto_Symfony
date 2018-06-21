@@ -1,0 +1,24 @@
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+
+wdfgsdlkgjer:
+    path:     /blog/{slug}/{id}
+    defaults: { _controller: AppBundle:Blog:show }
+
+wdfkgjer:
+    path:     /blog/{item}
+    defaults: { _controller: AppBundle:Blog:menu }
+
+jiji:
+    path:     /blog/{year}
+    defaults: { _controller: AppBundle:Blog:list }
+coo:
+    path:     /blog
+    defaults: { _controller: AppBundle:Blog:site }
+
+# app/config/routing.yml
+
+# oc_platform:
+#     resource: "routing.yml"
+#     prefix:   /blog

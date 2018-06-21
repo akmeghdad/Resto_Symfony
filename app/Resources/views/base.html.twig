@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{% block title %}Restaurant avec Symfony{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('css/normalize-3.0.3.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/font-awesome-4.3.0.min.css') }}">
+    
+        <!-- Feuilles de styles de l'application -->
+        <link rel="stylesheet" href="{{ asset('css/3wa-resto.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/ui-button.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/ui-form.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/ui-table.css') }}">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps|Karla">
+        {% block stylesheets %}{% endblock %}
+
+
+        <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+        <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        {% block javascripts %}{% endblock %}
+
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        <header>
+            <h1>
+                <a href="{{ path('homepage')}}">
+                    <img src="{{ asset('apple-touch-icon.png')}}" height="63" width="57" alt="3WA Restaurant">Restaurant - Made In America !
+                </a>
+            </h1>
+        </header>
+    
+        <!-- Interface utilisateur -->
+        <nav class="user-interface">
+            <ul class="link-list">
+            {# <?php if (LoginModel::isConnexted()): ?> 
+                <li>
+                    <a class="button button-primary" href="<?= $requestUrl ?>/booking">Réserver</a>
+                    <a class="button button-primary" href="<?= $requestUrl ?>/order">Commander</a>
+                </li>
+                <li class="layout-right">
+                    <p class="welcome">Bonjour <strong><?= LoginModel::getName(); ?></strong> !</p>
+                    <a class="button button-primary" href="<?= $requestUrl ?>/user/logout">Déconnexion</a>
+                </li>
+            <?php else: ?> #}
+                <li>
+                    <a class="button button-primary" href="{{ path('homepage')}}register">Créer un compte</a>
+                </li>
+                <li class="layout-right">
+                    <a class="button button-primary" href="{{ path('homepage')}}login">Connexion</a>
+                </li>
+            {# <?php endif;?> #}
+            </ul>
+    
+    
+            <ul class="link-list">
+            
+            </ul>
+        </nav>
+    
+        <main>
+            {% block body %}{% endblock %}
+        </main>
+    
+        <!-- Pied de page commun -->
+        <footer>
+            <ul class="link-list">
+                <li>
+        <link rel="stylesheet" href="{{ asset('css/ui-table.css') }}">
+                    <img src="{{ asset('images/payment/visa.png') }}" alt="Visa">
+                </li>
+                <li>
+                    <img src="{{ asset('images/payment/mastercard.png') }}" alt="MasterCard">
+                </li>
+                <li>
+                    <img src="{{ asset('images/payment/paypal.png') }}" alt="PayPal">
+                </li>
+            </ul>
+            <small>Réalisé avec
+                <i class="fa fa-heart"></i>&nbsp; par les élèves de la 3W Academy</small>
+        </footer>
+        
+    </body>
+</html>

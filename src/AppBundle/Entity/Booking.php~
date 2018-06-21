@@ -1,0 +1,50 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Booking
+ *
+ * @ORM\Table(name="booking", indexes={@ORM\Index(name="user_id", columns={"user_id"})})
+ * @ORM\Entity
+ */
+class Booking
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="datetime", nullable=false)
+     */
+    private $date;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="guests", type="boolean", nullable=false)
+     */
+    private $guests;
+
+    /**
+     * @var \AppBundle\Entity\Users
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Users")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * })
+     */
+    private $user;
+
+
+}
+

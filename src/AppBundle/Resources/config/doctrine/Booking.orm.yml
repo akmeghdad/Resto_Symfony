@@ -1,0 +1,35 @@
+AppBundle\Entity\Booking:
+    type: entity
+    table: booking
+    indexes:
+        user_id:
+            columns:
+                - user_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        date:
+            type: datetime
+            nullable: false
+        guests:
+            type: boolean
+            nullable: false
+    manyToOne:
+        user:
+            targetEntity: Users
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                user_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

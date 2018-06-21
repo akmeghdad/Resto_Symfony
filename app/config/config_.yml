@@ -1,0 +1,1 @@
+doctrine:mapping:convert yml AppBundle --from-database --force --filter=restaurant

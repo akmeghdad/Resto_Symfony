@@ -1,0 +1,45 @@
+AppBundle\Entity\OrderProduct:
+    type: entity
+    table: order_product
+    uniqueConstraints:
+        product_id:
+            columns:
+                - product_id
+        order_id:
+            columns:
+                - order_id
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        quantity:
+            type: boolean
+            nullable: false
+    manyToOne:
+        product:
+            targetEntity: Products
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                product_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+        order:
+            targetEntity: Orders
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                order_id:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }
